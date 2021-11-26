@@ -12,27 +12,25 @@ import (
 	"go.i3wm.org/i3"
 )
 
-type Icons map[string]string
-
 type Config struct {
-	icons     Icons
+	icons     map[string]string
 	separator string
 }
 
-func (c *Config) init(confFile string) {
+func (c *Config) init(conf string) {
 
-	jsonFile, err := os.Open(confFile)
+	f, err := os.Open(conf)
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer jsonFile.Close()
+	defer f.Close()
 
-	byteValue, err := io.ReadAll(jsonFile)
+	bytes, err := io.ReadAll(f)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	err = json.Unmarshal(byteValue, &c.icons)
+	err = json.Unmarshal(bytes, &c.icons)
 	if err != nil {
 		log.Fatal(err)
 	}
