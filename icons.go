@@ -12,6 +12,7 @@ import (
 	"go.i3wm.org/i3"
 )
 
+// Config stores the icons map and separator
 type Config struct {
 	icons     map[string]string
 	separator string
@@ -59,16 +60,16 @@ func (c *Config) editIcons(workspace *i3.Node, windows []*i3.Node) {
 	workspaceIcons := make([]string, 0)
 
 	for _, win := range windows {
-		found_icon := false
+		foundIcon := false
 
 		for identifier, icon := range c.icons {
 			if strings.Contains(strings.ToLower(win.Name), identifier) {
-				found_icon = true
+				foundIcon = true
 				workspaceIcons = append(workspaceIcons, icon)
 			}
 		}
 
-		if !found_icon {
+		if !foundIcon {
 			workspaceIcons = append(workspaceIcons, c.icons["_wildcard"])
 		}
 	}
