@@ -17,9 +17,9 @@ type Config struct {
 	separator string
 }
 
-func (c *Config) init(conf string) {
+func (c *Config) init(confPath string) {
 
-	f, err := os.Open(conf)
+	f, err := os.Open(confPath)
 	if err != nil {
 		log.Fatal(err)
 	}
