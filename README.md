@@ -1,5 +1,7 @@
 # i3-icons-daemon
 
+Is a lightweight golang daemon service that updates your i3 workspace based on the programs that are running in your workspace's windows.
+
 <p align="center">
    <img src="assets/i3-icons.png" alt="i3"/>
 </p>
