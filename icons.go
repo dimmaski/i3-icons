@@ -84,11 +84,11 @@ func (c *Config) editIcons(workspace *i3.Node, windows []*i3.Node) {
 func (c *Config) generateRenameCommand(workspace string, workspaceIcons []string) string {
 	r := regexp.MustCompile(`^[0-9]+`)
 	workspaceNumber := r.FindString(workspace)
-	icons_display := strings.Join(workspaceIcons, c.separator)
+	iconsDisplay := strings.Join(workspaceIcons, c.separator)
 
-	if icons_display == "" {
+	if iconsDisplay == "" {
 		return fmt.Sprintf(`rename workspace "%s" to "%s"`, workspace, workspaceNumber)
 	}
 
-	return fmt.Sprintf(`rename workspace "%s" to "%s:%s"`, workspace, workspaceNumber, icons_display)
+	return fmt.Sprintf(`rename workspace "%s" to "%s:%s"`, workspace, workspaceNumber, iconsDisplay)
 }
