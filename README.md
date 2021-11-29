@@ -25,7 +25,19 @@ go build .
 }
 ```
 
+## i3 conf
+
 ```sh
 # add the following line in your i3 config
 exec_always i3-icons -separator "|" -config ~/.i3/icons.json
+```
+
+```sh
+# from this
+bindsym $mod+N workspace N
+bindsym $mod+Shift+N move container to workspace N
+
+# to this
+bindsym $mod+N workspace number N
+bindsym $mod+Shift+N move container to workspace number N
 ```
