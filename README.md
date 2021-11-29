@@ -33,6 +33,8 @@ exec_always i3-icons -separator "|" -config ~/.i3/icons.json
 ```
 
 ```sh
+# change the following confis in order to allow switching and moving workspaces
+
 # from this
 bindsym $mod+N workspace N
 bindsym $mod+Shift+N move container to workspace N
